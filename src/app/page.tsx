@@ -18,34 +18,34 @@ export default function Home() {
 
   return (
     <main className="flex min-h-screen flex-col items-center">
-      <h1 className="p-10 text-2xl font-bold text-red-500">Dice Game</h1>
+      <h1 className="p-10 text-2xl font-bold text-pink-500">Dice Game</h1>
 
-      <p className="text-yellow-500">How many sides per dice?</p>
+      <p className="text-green-500">How many sides per dice?</p>
       <input
         defaultValue="6"
         onChange={(e) => {
           setSides(parseInt(e.target.value));
         }}
         type="number"
-        className="m-5 text-white border-pink-500 border-2 bg-black"
+        className="m-5 text-white border-orange-500 border-2 bg-black"
       ></input>
 
-      <p className="text-green-500">How many dice?</p>
+      <p className="text-pink-500">How many dice?</p>
       <input
         defaultValue="1"
         onChange={(e) => {
           setNumOfDice(parseInt(e.target.value));
         }}
         type="number"
-        className="m-5 text-white bg-black border-orange-500 border-2"
+        className="m-5 text-white bg-black border-green-500 border-2"
       ></input>
 
-      <button onClick={handleClick} className="m-5 p-2 border-purple-500 border-2 text-white">
+      <button onClick={handleClick} className="m-5 p-2 border-orange-500 border-2 text-white">
         Go!
       </button>
 
-      <p className="m-5 text-blue-500">Individual rolls: {eachRoll?.join(", ")}</p>
-      <p className="m-5 text-red-500">Total result: {totalResult}</p>
+      <p className="m-5 text-pink-500">Individual rolls: {eachRoll?.join(", ")}</p>
+      <p className="m-5 text-green-500">Total result: {totalResult}</p>
     </main>
   );
 }
