@@ -1,10 +1,16 @@
 "use client";
 
 import { useState } from "react";
+import { result } from ".";
 
 export default function Home() {
-  const [num1, setNum1] = useState<number>();
-  const [num2, setNum2] = useState<number>();
+  const [sides, setSides] = useState<number>(6);
+  const [numOfDice, setNumOfDice] = useState<number>(1);
+
+  let roll = result(numOfDice, sides);
+
+  console.log(roll.eachDice);
+  console.log(roll.total)
 
   return (
     <main className="flex min-h-screen flex-col items-center">
@@ -12,24 +18,26 @@ export default function Home() {
 
       <p>How many sides per dice?</p>
       <input
+       defaultValue="6"
         onChange={(e) => {
-          setNum1(parseInt(e.target.value));
+          setSides(parseInt(e.target.value));
         }}
         type="number"
         className="m-5 text-black"
       ></input>
       <p>How many dice?</p>
       <input
+       defaultValue="1"
         onChange={(e) => {
-          setNum2(parseInt(e.target.value));
+          setNumOfDice(parseInt(e.target.value));
         }}
         type="number"
         className="m-5 text-black"
       ></input>
       <button className="m-5 p-2 bg-white text-black">Go!</button>
 
-      <p className="m-5">Num1: {num1}</p>
-      <p className="m-5">Num2: {num2}</p>
+      <p className="m-5">Results: {roll?.eachDice}</p>
+      <p className="m-5">Total: {roll?.total}</p>
     </main>
   );
 }
